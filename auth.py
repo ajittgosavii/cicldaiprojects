@@ -16,7 +16,6 @@ import time
 import streamlit as st
 
 LAB_NAME = "CIS CLD AI Applications"
-COLLAB = "In Collaboration with ECHO AI Lab – Calgary"
 MAX_ATTEMPTS, LOCKOUT_SECONDS = 5, 60
 ITERATIONS = 240_000
 # the Hexagon pillars' markers on the dark brand panel: the same six palette slots, stepped for a dark surface
@@ -97,7 +96,7 @@ _LOGIN_CSS = """
     width: 100%; max-width: 23rem; flex: 0 0 auto !important; height: auto !important; }
 
   .brand { position: relative; overflow: hidden; min-height: 100vh; box-sizing: border-box; color: #fff;
-           display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem 3.5rem 3rem;
+           display: flex; flex-direction: column; justify-content: center; padding: 2.5rem 3.5rem 3rem;
            font-family: var(--body);
            background: linear-gradient(155deg, #0A1733 0%, #0E2551 55%, #091530 100%); }
   .brand > *:not(.fx) { position: relative; z-index: 2; }
@@ -135,6 +134,7 @@ _LOGIN_CSS = """
   @keyframes turn { to { transform: rotate(360deg); } }
 
   /* the mark itself */
+  .brand .mark { position: absolute; top: 2.5rem; left: 3.5rem; z-index: 2; }
   .brand .mark svg { overflow: visible; }
   .brand .lg-hex { stroke-dasharray: 180; stroke-dashoffset: 180;
                    animation: draw 1.7s cubic-bezier(0.4, 0, 0.2, 1) 0.15s forwards; }
@@ -150,12 +150,11 @@ _LOGIN_CSS = """
                         65% { opacity: 0; transform: translateY(-5px); } 100% { opacity: 0; } }
 
   /* the page-load sequence */
-  .brand .mark, .brand .lab, .brand .pitch, .brand .pillars, .brand .foot {
+  .brand .mark, .brand .lab, .brand .pitch, .brand .pillars {
     animation: rise-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   .brand .lab { animation-delay: 0.15s; }
   .brand .pitch { animation-delay: 0.3s; }
   .brand .pillars { animation-delay: 0.45s; }
-  .brand .foot { animation-delay: 0.6s; }
   @keyframes rise-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
   .brand .hero { max-width: 33rem; padding: 3rem 0; }
@@ -165,7 +164,6 @@ _LOGIN_CSS = """
   .brand .pillars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem 1.5rem;
                     font-size: 0.86rem; max-width: 30rem; }
   .brand .pillars .pillar { color: #DCE4F2; }
-  .brand .foot { color: #A9B8D2; font-size: 0.85rem; }
 
   .signin .title { font-family: var(--cond); font-weight: 600; font-size: 1.9rem; color: var(--ink); }
   .signin p { font-family: var(--body); color: var(--slate); line-height: 1.55; margin: 0.35rem 0 1.4rem; }
@@ -182,7 +180,8 @@ _LOGIN_CSS = """
     .brand .lg-cloud, .brand .lg-dot { opacity: 1; }
   }
   @media (max-width: 640px) {
-    .brand { min-height: 0; padding: 1.75rem 1.5rem 2.5rem; }
+    .brand { min-height: 0; padding: 4.5rem 1.5rem 2.5rem; }
+    .brand .mark { top: 1.5rem; left: 1.5rem; }
     .brand .hero { padding: 2rem 0 1.5rem; }
     .brand .pillars { grid-template-columns: 1fr; }
     .watermark svg { width: 22rem; height: 22rem; margin-right: -11rem; opacity: 0.07; }
@@ -213,7 +212,7 @@ def _brand_panel() -> str:
         '<p class="pitch">The catalogue of AI applications delivered by CIS CLD across cloud, data, migration '
         'and security, each mapped to its Infosys Hexagon pillar and business case.</p>'
         f'<div class="pillars">{pillars}</div></div>'
-        f'<div class="foot">{COLLAB}</div></div>'
+        "</div>"
     )
 
 

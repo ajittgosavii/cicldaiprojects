@@ -262,8 +262,7 @@ if not auth.require_login():
 with st.container(key="appbar"):
     brand_col, user_col, out_col = st.columns([6, 2.6, 1.2], vertical_alignment="center")
     brand_col.markdown(
-        f'<div class="lockup">{auth.logo_svg(34, "bar")}<div><div class="lab">{auth.LAB_NAME}</div>'
-        f'<div class="collab">{auth.COLLAB}</div></div></div>',
+        f'<div class="lockup">{auth.logo_svg(34, "bar")}<div class="lab">{auth.LAB_NAME}</div></div>',
         unsafe_allow_html=True,
     )
     user_col.markdown(f'<div class="who">Signed in as <b>{esc(auth.current_user())}</b></div>',
@@ -365,6 +364,6 @@ with st.container(key="content"):
     st.markdown(
         '<div class="method"><p>Business Benefits are modelled estimates, not measured results: labour savings at '
         "&#36;75/hr of hours saved, FinOps savings at 2–3% of an assumed &#36;1M/yr cloud bill.</p>"
-        f"<p>{auth.LAB_NAME}. {auth.COLLAB}.</p></div>",
+        f"<p>{auth.LAB_NAME}</p></div>",
         unsafe_allow_html=True,
     )
