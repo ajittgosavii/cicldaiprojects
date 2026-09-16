@@ -6,6 +6,8 @@ Each entry has a serial number, a title, a two-line description, a Category (use
 
 Savings are modelled, not measured: labour savings = hours saved per year × $75/hr blended rate; FinOps savings = 2–3% of an assumed $1M/yr cloud bill. Each row shows its basis.
 
+Full documentation: [DOCUMENTATION.md](DOCUMENTATION.md) — what the page shows, how it is deployed and secured, the savings method, the data model, and the full list of applications.
+
 ## Run locally
 
 ```bash
